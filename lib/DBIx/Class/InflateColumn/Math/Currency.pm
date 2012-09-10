@@ -1,7 +1,7 @@
 package DBIx::Class::InflateColumn::Math::Currency;
 use strictures;
 use Math::Currency;
-our $AUTHORITY = "cpan:ASHLEY":
+our $AUTHORITY = "cpan:ASHLEY";
 our $VERSION = "0.01";
 
 sub register_column {
