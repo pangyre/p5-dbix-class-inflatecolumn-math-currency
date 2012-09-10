@@ -7,14 +7,13 @@ our $VERSION = "0.01";
 sub register_column {
     my ( $self, $column, $info, @rest ) = @_;
 
-    return $self->next::method($column, $info, @rest);
+    $self->next::method($column, $info, @rest);
 
     return unless $info->{is_currency};
 
     $self->inflate_column
-        ( $column => {
-                     inflate => sub { Math::Currency->new(+shift) },
-                     deflate => sub { +shift->bstr } });
+        ( $column => { inflate => sub { Math::Currency->new(+shift) },
+                       deflate => sub { +shift->bstr } });
 }
 
 1;
